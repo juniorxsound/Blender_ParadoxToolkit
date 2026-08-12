@@ -1,7 +1,22 @@
 
 # Paradox Toolkit
-The Paradox Toolkit is an addon to create 3D optical illusions of impossible geometry in Blender 2.8+. 
+The Paradox Toolkit is an add-on for creating 3D optical illusions of impossible geometry in Blender 2.8 through Blender 5.x.
 The addon includes a library of impossible geometry figures, tools to align an ortographic camera with the optical illusions, and tools to manipulate your 3D objects around the impossible geometry scenes.
+
+## Installation
+
+### Blender 4.2 and newer (including Blender 5)
+
+1. Download this repository as a ZIP file.
+2. In Blender, open **Edit > Preferences > Get Extensions**.
+3. Open the drop-down menu in the upper-right, choose **Install from Disk**, and select the ZIP file.
+4. Enable **Paradox Toolkit** if it is not enabled automatically.
+
+The extension appears in the 3D Viewport's **Add > Illusion Object** menu and in the **Paradox Tools** sidebar tab.
+
+### Blender 2.8 through 4.1
+
+Use the legacy **Preferences > Add-ons > Install** workflow. The `bl_info` metadata is retained for these Blender versions.
 
 In the [Addon Wiki](https://github.com/matgarate/Blender_ParadoxToolkit/wiki/) you can find how to install the addon, the quickstart guide, and a description for the addon tools.
 
@@ -17,5 +32,4 @@ To see more tutorials, experiments, and artworks using this addon you can also f
 I hope you enjoy this addon!
 
 ![](https://raw.githubusercontent.com/wiki/matgarate/Blender_ParadoxToolkit/img_sample/Library.png)
-
 

@@ -3,7 +3,7 @@ bl_info = {
     "author" : "Matias Garate",
     "description" : "Tools to create 3D optical illusions by Matias Garate",
     "blender" : (2, 80, 0),
-    "version" : (1, 0, 0),
+    "version" : (1, 1, 0),
     "location" : "View3D",
     "warning" : "",
     "category" : "Generic"
@@ -72,9 +72,9 @@ def register():
     bpy.types.VIEW3D_MT_add.append(menu_function_paradox_add)
 
 def unregister():
-    unregister_classes()
-    icon_unregister()
     bpy.types.VIEW3D_MT_add.remove(menu_function_paradox_add)
+    icon_unregister()
+    unregister_classes()
 
 
 if __name__ == "__main__":

@@ -27,7 +27,7 @@ from . draw_operator_boxes import draw_Geometry_Box, draw_IllusionAlignment_Box,
 #
 #########################################################
 
-class PARADOX_OT_construct_penrose_triangle(bpy.types.Operator, GeometryProperties, IllusionAlignmentProperties, RelativeCameraAlignmentProperties):
+class PARADOX_OT_construct_penrose_triangle(GeometryProperties, IllusionAlignmentProperties, RelativeCameraAlignmentProperties, bpy.types.Operator):
     bl_idname = "object.paradox_construct_penrose_triangle"
     bl_label = "Penrose Triangle"
     bl_description = "Construct a Penrose Triangle"
@@ -101,7 +101,7 @@ class PARADOX_OT_construct_penrose_triangle(bpy.types.Operator, GeometryProperti
 #########################################################
 
 
-class PARADOX_OT_construct_reutersvard_rectangle(bpy.types.Operator, GeometryProperties, IllusionAlignmentProperties, RelativeCameraAlignmentProperties):
+class PARADOX_OT_construct_reutersvard_rectangle(GeometryProperties, IllusionAlignmentProperties, RelativeCameraAlignmentProperties, bpy.types.Operator):
     bl_idname = "object.paradox_construct_reutersvard_rectangle"
     bl_label = "Reutersvard Rectangle"
     bl_description = "Construct a Reutersvard Rectangle"
@@ -172,7 +172,7 @@ class PARADOX_OT_construct_reutersvard_rectangle(bpy.types.Operator, GeometryPro
 #########################################################
 
 
-class PARADOX_OT_construct_impossible_arch(bpy.types.Operator, GeometryProperties, IllusionAlignmentProperties, RelativeCameraAlignmentProperties):
+class PARADOX_OT_construct_impossible_arch(GeometryProperties, IllusionAlignmentProperties, RelativeCameraAlignmentProperties, bpy.types.Operator):
     bl_idname = "object.paradox_construct_impossible_arch"
     bl_label = "Impossible Arch"
     bl_description = "Construct an Impossible Arch"
@@ -246,7 +246,7 @@ class PARADOX_OT_construct_impossible_arch(bpy.types.Operator, GeometryPropertie
 #
 #########################################################
 
-class PARADOX_OT_construct_impossible_cube(bpy.types.Operator, GeometryProperties, RelativeCameraAlignmentProperties):
+class PARADOX_OT_construct_impossible_cube(GeometryProperties, RelativeCameraAlignmentProperties, bpy.types.Operator):
     bl_idname = "object.paradox_construct_impossible_cube"
     bl_label = "Impossible Cube"
     bl_description = "Construct an Isometric Impossible Cube"
@@ -312,7 +312,7 @@ class PARADOX_OT_construct_impossible_cube(bpy.types.Operator, GeometryPropertie
 #
 #########################################################
 
-class PARADOX_OT_construct_penrose_stair(bpy.types.Operator, GeometryProperties, IllusionAlignmentProperties, RelativeCameraAlignmentProperties):
+class PARADOX_OT_construct_penrose_stair(GeometryProperties, IllusionAlignmentProperties, RelativeCameraAlignmentProperties, bpy.types.Operator):
     bl_idname = "object.paradox_construct_penrose_stair"
     bl_label = "Penrose Stair"
     bl_description = "Construct a Penrose Stair"
@@ -373,7 +373,6 @@ class PARADOX_OT_construct_penrose_stair(bpy.types.Operator, GeometryProperties,
             align_CameraObject(context.scene.camera, self.align_camera_object, mesh_object, illusion_angle_x, illusion_angle_z, self.tilt_angle, camera_distance = camera_distance, report = self.report)
 
         return {'FINISHED'}
-
 
 
 

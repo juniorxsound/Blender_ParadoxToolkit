@@ -15,7 +15,7 @@ from . common_operator_properties import IllusionAlignmentProperties
 from . draw_operator_boxes import draw_IllusionAlignment_Box
 from . common_operator_functions import get_IllusionAngles, align_CameraObject, check_ValidProperty_IllusionObject, check_ValidCamera
 
-class PARADOX_OT_add_axonometric_camera(bpy.types.Operator, IllusionAlignmentProperties):
+class PARADOX_OT_add_axonometric_camera(IllusionAlignmentProperties, bpy.types.Operator):
     bl_idname = "object.paradox_add_axonometric_camera"
     bl_label = "Axonometric Camera"
     bl_description = "Add an axonometric camera"
@@ -94,11 +94,14 @@ class PARADOX_OT_add_axonometric_camera(bpy.types.Operator, IllusionAlignmentPro
             location= target_location,
             rotation= target_rotation)
 
-        context.object.data.type = 'ORTHO'
-        bpy.context.object.data.ortho_scale = self.ortho_scale
+        camera = context.object
+        camera.data.type = 'ORTHO'
+        camera.data.ortho_scale = self.ortho_scale
 
         if self.set_active_camera:
-            bpy.ops.view3d.object_as_camera()
+            # Assigning the scene camera directly does not require a 3D Viewport
+            # context, so this operator also works from search and scripts.
+            context.scene.camera = camera
 
         return {'FINISHED'}
 
@@ -207,8 +210,7 @@ class PARADOX_OT_camera_orientation_transform(bpy.types.Operator):
 
         # Create the transform along the camera orientation
         context.view_layer.objects.active = camera
-        bpy.ops.transform.create_orientation(name = "Illusion Camera", overwrite = True)
-        bpy.ops.transform.select_orientation(orientation = "Illusion Camera")
+        bpy.ops.transform.create_orientation(name = "Illusion Camera", use = True, overwrite = True)
 
         if previous_active_object is not None:
             context.view_layer.objects.active = previous_active_object

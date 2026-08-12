@@ -1,0 +1,25 @@
+schema_version = "1.0.0"
+
+id = "paradox_toolkit"
+version = "1.1.0"
+name = "Paradox Toolkit"
+tagline = "Create and manipulate impossible 3D geometry"
+maintainer = "Matias Garate"
+type = "add-on"
+
+website = "https://github.com/matgarate/Blender_ParadoxToolkit"
+
+blender_version_min = "4.2.0"
+
+license = [
+  "SPDX:GPL-3.0-or-later",
+]
+
+[build]
+paths_exclude_pattern = [
+  "__pycache__/",
+  "/.git/",
+  "/.agents/",
+  "/.codex/",
+  "/*.zip",
+]
