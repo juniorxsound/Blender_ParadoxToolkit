@@ -100,7 +100,7 @@ class PARADOX_OT_add_axonometric_camera(IllusionAlignmentProperties, bpy.types.O
 
         if self.set_active_camera:
             # Assigning the scene camera directly does not require a 3D Viewport
-            # context, so this operator also works from search and scripts.
+            # context (unlike bpy.ops.view3d.object_as_camera()).
             context.scene.camera = camera
 
         return {'FINISHED'}
